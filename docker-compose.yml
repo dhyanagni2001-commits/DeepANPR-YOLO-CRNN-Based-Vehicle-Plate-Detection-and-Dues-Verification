@@ -1,0 +1,5 @@
+services:
+  detector:
+    build: ./detector_service
+    ports:
+      - "8001:8001"
