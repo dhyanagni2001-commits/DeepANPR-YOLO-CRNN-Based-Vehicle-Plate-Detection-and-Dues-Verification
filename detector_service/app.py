@@ -1,12 +1,18 @@
-from fastapi import FastAPI, UploadFile, File, HTTPException
+from fastapi import FastAPI, UploadFile, File
 import numpy as np
 from ultralytics import YOLO
 from PIL import Image
 import io
 
+# ✅ Create FastAPI app FIRST
 app = FastAPI(title="DeepANPR – YOLO Plate Detector")
 
-# Demo YOLO model
+# ✅ Root endpoint
+@app.get("/")
+def root():
+    return {"status": "DeepANPR API running"}
+
+# ✅ Load YOLO model (once at startup)
 model = YOLO("yolov8n.pt")
 
 
@@ -50,10 +56,10 @@ async def detect_plate(file: UploadFile = File(...)):
     if x2 <= x1 or y2 <= y1:
         return {"found": False}
 
-    # Crop plate using NumPy
+    # Crop plate
     plate_crop = img[y1:y2, x1:x2]
 
-    # Encode cropped plate using PIL (not OpenCV)
+    # Encode cropped plate
     plate_image = Image.fromarray(plate_crop)
     buffer = io.BytesIO()
     plate_image.save(buffer, format="JPEG")
