@@ -1,5 +1,4 @@
-DeepANPR – Automatic Number Plate Recognition (Microservices)
-
+🚀 DEEPANPR System — YOLO Plate Detection + OCR (FastAPI + Docker)
 DeepANPR is a modular Automatic Number Plate Recognition (ANPR) system built using FastAPI with a microservices architecture.
 
 It performs:
@@ -13,28 +12,6 @@ It performs:
 🔗 Gateway orchestration service
 
 Each service runs independently and communicates through HTTP APIs.
-
-🧩 System Architecture
-
-Client → Gateway Service (8003)
-             |
-             v
-     +-------------------+
-     |  Detector Service | → YOLO → Plate Image Crop
-     |        8000       |
-     +-------------------+
-             |
-             v
-     +-------------------+
-     |    OCR Service    | → Extract Text
-     |       8001        |
-     +-------------------+
-             |
-             v
-     +-------------------+
-     |   Dues Service    | → Check pending dues
-     |       8002        |
-     +-------------------+
 
  🛠️ Tech Stack
 
