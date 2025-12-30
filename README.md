@@ -1,5 +1,7 @@
-🚀 DEEPANPR System — YOLO Plate Detection + OCR (FastAPI + Docker)
-DeepANPR is a modular Automatic Number Plate Recognition (ANPR) system built using FastAPI with a microservices architecture.
+# 🚀 DeepANPR: YOLO-Based License Plate Detection and OCR (FastAPI + Docker)
+
+DeepANPR is a modular ANPR system that combines YOLO plate detection with OCR, implemented using FastAPI microservices.
+
 
 It performs:
 
